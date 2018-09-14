@@ -1,0 +1,31 @@
+---
+title: "OpenUniversityMarkdown"
+author: "Abdul"
+date: "September 13, 2018"
+output: html_document
+---
+## R Markdown Open University Data
+
+We start by getting the working directory, which is correct so we don't have to set an alternative.
+```{r working directory}
+getwd()
+```
+We then read the csv file and specify the number of rows we want to output - otherwise we end up with more than one thousand rows.
+```{r read csv}
+read.csv("studentAssessment.csv", nrows = 5)
+```
+Then we assign the csv file to a variable for ease of manipulation.
+```{r assign variable}
+dat <-read.csv("studentAssessment.csv")
+```
+```{r count fields}
+length(dat$id_student)
+```
+Above we use length to count the number of fields in the id_student column, using the $ operator to specify the column within the whole data frame assigned to "dat."
+
+Below we use mean and specify na.rm = TRUE, so it won't output NA as the mean. 
+```{r mean}
+mean(dat$score, na.rm = TRUE)
+```
+
+
